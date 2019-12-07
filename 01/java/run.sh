@@ -1,4 +1,4 @@
 #!/bin/bash
 
-javac Main.java
-java Main
+javac One.java
+java One < input.txt
