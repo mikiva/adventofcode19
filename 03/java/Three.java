@@ -18,14 +18,27 @@ public class Three {
         String[] line2 = line2raw.split(",");
         Board board = new Board(line1, line2);
         List<Point> intersects = board.getIntersections();
+        int miniDist = Integer.MAX_VALUE;
+        Point ORIGO = new Point(0,0);
         for(Point p : intersects)
         {
             System.out.println(p.x + " " + p.y + "\n");
+            if(!p.isOrigo())
+            {
+                int dist = board.getDistance(p,ORIGO);
+
+                if(dist < miniDist)
+                {
+                    miniDist = dist;
+                }
+            }
+
         }
         System.out.println(board.getIntersections().size());
 
 
-        System.out.println(board.toString());
+        //System.out.println(board.toString());
+        System.out.println(miniDist);
         sc.close();
     }
 

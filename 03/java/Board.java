@@ -29,7 +29,6 @@ public class Board {
             int distance = Integer.valueOf(s.substring(1));
             Point newP = walk(dir, distance);
             Segment seg = new Segment(currPoint, newP);
-            System.out.println("sweg " + seg.toString());
             segments.add(seg);
             currPoint = newP;
         }
@@ -38,17 +37,17 @@ public class Board {
     }
 
     public Point walk(char dir, int distance) {
-        Point newPoint = currPoint;
+        Point newPoint = new Point(currPoint.x, currPoint.y);
 
         switch (dir) {
         case 'U':
             newPoint.x += distance;
             break;
         case 'D':
-            newPoint.x += distance;
+            newPoint.x -= distance;
             break;
         case 'L':
-            newPoint.y += distance;
+            newPoint.y -= distance;
             break;
         case 'R':
             newPoint.y += distance;
@@ -82,9 +81,6 @@ public class Board {
 
                 if(intersect(s1,s2))
                 {
-                   //System.out.println(s1.toString());
-                   //System.out.println(s2.toString());
-                   //System.out.println();
                     inter.add(getIntersection(s1, s2));
 
                     
@@ -129,6 +125,14 @@ public class Board {
         else{
             return new Point(0,0);
         }
+    }
+
+    public int getDistance(Point p1, Point p2)
+    {
+
+        return Math.abs((p1.x - p2.x)) + Math.abs((p1.y - p2.y));
+
+
     }
 
 

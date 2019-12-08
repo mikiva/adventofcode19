@@ -1,6 +1,6 @@
 class Point {
-    public int x;
-    public int y;
+    int x;
+    int y;
 
     public Point() {
 
@@ -14,6 +14,14 @@ class Point {
 
     public String toString()
     {
-        return x + " | " + y;
+        return "x: " + x + " | y: " + y;
+    }
+
+
+    public boolean isOrigo()
+    {
+
+        return this.x == 0 && this.y == 0;
+
     }
 }
